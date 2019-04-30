@@ -1,0 +1,11 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+    <h1>View {{ module_title }} Quiz</h1>
+    {% for question, answers in choices.items %}
+        <p><b>{{question.question_text}}</b></p>
+        {% for answer in answers %}
+            <p>{{answer.choice_text}}</p>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+    <h1>Create Quiz</h1>
+    <form class="site-form" action="{% url 'instructors:instructor-add-quiz' moduleid=moduleid %}" method=post>
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input type="submit" value="Create Quiz">
+    </form>
+{% endblock %}

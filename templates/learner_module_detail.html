@@ -1,0 +1,22 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<div class="module-detail">
+    <h1>{{ module.title }}</h1>
+         <div class="components">
+             {% for component in components %}
+                <div class="component">
+                    {% if component.text_content != "" %}
+                        <div class="component_text">{{ component.text_content }}</div>
+                    {% endif %}
+                    {% if component.image_content.url != None %}
+                        <img class="component_img" src="{{component.image_content.url}}">
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% if progress <= module.order %}
+        <a class = "redirect_button" href="{% url 'learners:take_quiz' course_id=module.Course_id username=username%}" style="display: block;">Take Quiz</a>
+    {% endif %}
+    <a class = "redirect_button" href="{% url 'learners:modules' course_id=module.Course_id %}" style="display: block;">Back to Modules</a>
+</div>
+{% endblock %}

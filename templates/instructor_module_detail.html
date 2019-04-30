@@ -1,0 +1,24 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<div class="module-detail">
+    <h1>{{ module.title }}</h1>
+    <div class="components">
+        {% for component in components %}
+        <div class="component">
+            {% if component.text_content != "" %}
+            <div class="component_text">{{ component.text_content }}</div>
+            {% endif %}
+            {% if component.image_content.url != None %}
+            <img class="component_img" src="{{component.image_content.url}}">
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="button_wrapper">
+        <a class = "redirect_button" href="{% url 'instructors:instructor-add-component' moduleid=module.id %}" >Add Component</a>
+        <a class = "redirect_button" href= "{% url 'instructors:instructor-add-quiz' moduleid=module.id %}">Add Quiz</a>
+        <a class = "redirect_button" href="{% url 'instructors:instructor-view-quiz' moduleid=module.id %}">View Quiz</a>
+        <a class = "redirect_button" href="{% url 'instructors:instructor-reorder-component' moduleid=module.id %}">Reorder Component</a>
+    </div>
+</div>
+{% endblock %}

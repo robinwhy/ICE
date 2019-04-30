@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="course-detail">
+    <div><h2>Course title: {{ course.title }}</h2></div>
+    <div><img class="component_img" src="{{ course.thumb.url }}"></div>
+    <div>Instructor Name: {{ course.instructor_user.get_full_name }}</div>
+    <div>Instructor Email: {{ course.instructor_user.email }}</div>
+    <div>Course Description: {{ course.description }}</div>
+    <div>CECU awarded after completion: {{ course.CECU }}</div>
+</div>
+    <a class="redirect_button" href="{% url 'learners:active-course' category='all'%}">Course List</a>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Djangonauts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        .img-sized {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        :root {
+            --mainColor: #91D8FE;
+        }
+        .wrapper {
+            /*max-width: 960px;*/
+            height: auto;
+            min-height: 100% !important;
+            margin: 5%;
+            background-color: white;
+        }
+        .redirect_link {
+            background:
+                linear-gradient(
+                    to right,
+                    var(--mainColor) 0%,
+                    var(--mainColor) 5px,
+                    transparent 5px
+                );
+            background-repeat: repeat-x;
+            background-size: 100%;
+            color: darkblue;
+            padding-left: 10px;
+            text-decoration: none;
+        }
+
+        .redirect_link:hover {
+            background:
+                linear-gradient(
+                    to right,
+                var(--mainColor) 0%,
+                var(--mainColor) 5px,
+                transparent
+                );
+        }
+
+    </style>
+</head>
+<body>
+<div class="container-fluid wrapper">
+    <div class="row">
+        <div class="col-sm-2">
+            {% block sidebar %}
+                <ul class="sidebar-nav">
+                    <li><a class="redirect_link" href="{% url 'learners:active-course' category='all'%}">Home</a></li>
+                    <li><a class="redirect_link" href="{% url 'learners:active-course' category='all'%}">All Courses</a></li>
+                    <br>
+                    {% if user.is_authenticated %}
+                        <li><a class="redirect_link" href="{% url 'learners:completed_course'%}">Completed Courses</a></li>
+
+                        <li>My Profile</li>
+                        <ul>
+                            <li>User: {{ user.username }}</li>
+{#                            <li>User: {{ user.get_username }}</li>#}
+                            <li>Full name: {{ user.get_full_name }}</li>
+
+                            {#                            <li>Location: {{ user.instructor.self_intro }}</li>#}
+                            {#                            <li>Birth Date: {{ user.instructor.email }}</li>#}
+                        </ul>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+
+                    {% else %}
+                        <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
+                    {% endif %}
+                </ul>
+
+
+
+            {% endblock %}
+        </div>
+        <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
+    </div>
+</div>
+</body>
+</html>

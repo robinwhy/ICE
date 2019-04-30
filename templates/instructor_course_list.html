@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1>Course List</h1>
+    <div class="courses">
+        {% for course in courses %}
+            <h2><a class="redirect_link"
+                   href="{% url 'instructors:instructor-modules' course_id=course.id %}">{{ course.title }}</a>
+            </h2>
+
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <img src="{{ course.thumb.url }}" class="img-sized">
+                </div>
+                <div class="col-sm-8">
+                    <h3>Course Introduction</h3> <br>{{ course.snippet }}
+                </div>
+
+
+            </div>
+        {% endfor %}
+    <a class = "redirect_button" href="{% url 'instructors:instructor-add-course' %}">Add Course</a>
+    </div>
+{% endblock %}

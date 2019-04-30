@@ -1,0 +1,28 @@
+{% extends 'base_layout.html' %}
+{% block content%}
+    {% for course in course_taken %}
+            <br>
+            <h2><a class="redirect_link" href="{% url 'learners:modules' course_id=course.0.id %}">
+                {{ course.0.title}}</a></h2>
+            <div class="row">
+                <div class="col-sm-3">
+                    <img class="img-sized"src="{{course.0.thumb.url}}">
+                </div>
+                <div class="col-sm-8" class="course_intro">
+                    <h3>Course Introduction</h3>
+                    <br>{{ course.0.snippet }}
+                    <br>
+                    <br>Date completed: {{ course.1 }}
+                    <br>
+                    <br>CECU: {{ course.2 }}
+                    <br>
+                    <br>Cumulative CECU: {{ course.3 }}
+                    <br>
+                    <a class="redirect_button" href="{% url 'learners:modules' course_id=course.0.id %}">Enter Course</a>
+                    <a class="redirect_button" href="{% url 'learners:course_detail' course_id=course.0.id %}">Course Detail</a>
+                </div>
+            </div>
+            <br>
+    {% endfor %}
+    </div>
+{% endblock %}

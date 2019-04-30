@@ -1,0 +1,22 @@
+{% extends 'base_layout.html' %}
+{% block content%}
+
+<h1>Your quiz result</h1>
+<p>Your score: {{total_score}}</p>
+<p>You {{pass_or_fail}} the quiz!</p>
+
+{% if is_last_module == True and pass_or_fail == 'passed' %}
+    <p>Congratulations! You passed this course! </p>
+{% endif %}
+
+
+{% if pass_or_fail == 'passed' and is_last_module == False %}
+    <a class="redirect_link" href="{% url 'learners:module_detail' moduleid=next_module_id %}">Next Module</a>
+{% elif pass_or_fail == 'passed' and is_last_module == True %}
+    <a class="redirect_link" href="{% url 'learners:usercenter' %}">Back to Homepage</a>
+
+{% elif pass_or_fail == 'failed' %}
+    <a class="redirect_link" href="{% url 'learners:module_detail' moduleid=current_module_id %}">Go Back to Module</a>
+{% endif %}
+
+{% endblock %}

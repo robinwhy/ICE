@@ -1,0 +1,42 @@
+{% extends 'base_layout.html' %}
+{% block content%}
+    <div class="courses">
+    {% for category in categories %}
+        <a class = "redirect_button" href="{% url 'learners:active-course' category=category.id %}" >{{ category }}</a>
+    {% endfor %}
+
+    {% for course_status in course_and_status %}
+            {% if course_status.1 == "Enrolled" or course_status.1 == "Completed" %}
+                <h2><a class="redirect_link" href="{% url 'learners:modules' course_id=course_status.0.id %}">{{ course_status.0.title}}</a></h2>
+            {% elif course_status.1 == "Enroll" %}
+                <h2>{{ course_status.0.title}}</h2>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <img class="img-sized"src="{{course_status.0.thumb.url}}">
+                </div>
+                <div class="col-sm-8" class="course_intro">
+                    <h3>Course Introduction</h3>
+                    <br>{{ course_status.0.snippet }}
+                    <br>
+                    {% if course_status.1 == "Enrolled" or course_status.1 == "Completed" %}
+                        <a class="redirect_button" href="{% url 'learners:modules' course_id=course_status.0.id %}">Enter Course</a>
+                    {% endif %}
+
+                    <a class="redirect_button" href="{% url 'learners:course_detail' course_id=course_status.0.id %}">Course Detail</a>
+
+                    {% if course_status.1 == "Enrolled"%}
+                        <a class="redirect_button" >Enrolled</a>
+                    {% elif course_status.1 == "Completed"%}
+                        <a class="redirect_button" >Completed</a>
+                    {% elif course_status.1 == "Enroll"%}
+                        <a class="redirect_button" href="{% url 'learners:enroll_course' course_id=course_status.0.id %}">Enroll</a>
+                    {% endif %}
+
+                </div>
+            </div>
+            <br>
+    {% endfor %}
+    </div>
+{% endblock %}

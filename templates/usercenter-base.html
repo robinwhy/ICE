@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head>
+	<meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+	<title>{% block title %}ICE{% endblock %}</title>
+{% block custom_css %}
+{% endblock %}
+</head>
+<body>
+{#<section class="headerwrap headerwrap2">#}
+{#    <header>#}
+{#		<div  class="header2 header">#}
+{# 			<div class="top">#}
+{#        {% if request.user.is_authenticated %}#}
+{#            <div class="wp">#}
+{#             <div class="fl"><p>服务电话：<b>23333333</b></p></div>#}
+{#			<div class="personal">#}
+{##}
+{#                            <dl class="user fr">#}
+{#                                <dd>{{ user.username }}<img class="down fr" src="{% static 'images/top_down.png' %}"/></dd>#}
+{#                                <dt><img width="20" height="20" src="{{ MEDIA_URL }}{{ user.image }}"/></dt>#}
+{#                            </dl>#}
+{#                            <div class="userdetail">#}
+{#                            	<dl>#}
+{#	                                <dt><img width="80" height="80" src="{{ MEDIA_URL }}{{ user.image }}"/></dt>#}
+{#	                                <dd>#}
+{#	                                    <h2>{{ user.nick_name }}</h2>#}
+{#	                                    <p>{{ user.username }}</p>#}
+{#	                                </dd>#}
+{#                                </dl>#}
+{#                                <div class="btn">#}
+{#	                                <a class="personcenter fl" href="{% url 'users:user_info' %}">进入个人中心</a>#}
+{#	                                <a class="fr" href="{% url 'logout' %}">退出</a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#              <a href="{% url 'users:my_message' %}">#}
+{#                            <div class="msg-num"><span id="MsgNum">{{ request.user.unread_nums }}</span></div>#}
+{#                        </a>#}
+{#            </div>#}
+{#    {% else %}#}
+{#                    				<div class="wp">#}
+{#					<div class="fl"><p>服务电话：<b>23333333</b></p></div>#}
+{#					<!--登录后跳转-->#}
+{##}
+{##}
+{#                      <a style="color:white" class="fr registerbtn" href="{% url "register" %}">注册</a>#}
+{#                    <a style="color:white" class="fr loginbtn" href="{% url 'login'%}?next={{ request.path }}">登录</a>#}
+{##}
+{##}
+{##}
+{##}
+{#				</div>#}
+{#{% endif %}#}
+{#			</div>#}
+
+
+{#</section>#}
+{#    <div class="middle">#}
+{#        <div class="wp">#}
+{#            <img class="fl" src="{% static 'mooc.jpeg' %}"/>#}
+{#            <h1>ICE</h1>#}
+{#        </div>#}
+{#    </div>#}
+{#			</div>#}
+{#    </header>#}
+
+
+<!--crumbs start-->
+{#{% block custom_bread %}#}
+{#    <section>#}
+{#        <div class="wp">#}
+{#            <ul  class="crumbs">#}
+{#                <li><a href="{% url 'index' %}">首页</a>></li>#}
+{#                <li><a href="{% url 'users:user_info' %}">个人中心</a>></li>#}
+{#                <li>个人信息</li>#}
+{#            </ul>#}
+{#        </div>#}
+{#    </section>#}
+{#{% endblock %}#}
+{#	<div class="wp list personal_list">#}
+{#	<div class="left">#}
+    <h1><a class="redirect_link" href="{% url 'learners:active-course' category='all'%}">active course</a></h1>
+{#	</div>#}
+
+{% block  right_content %}
+{% endblock %}
+
+	</div>
+</section>
+<!--sidebar start-->
