@@ -6,12 +6,12 @@ Here are the functions it has:
   <li>instructor: registration, course, module, component and quiz creation</li>
   <li>admin: view all data about learners, courses and instructors</li>
 </ul>
-Here are some of the images of the app:
-<img src="https://github.com/robinwhy/ICE/blob/master/images/instructor_registration.png" alt="instructor registration" title="instructor registration">
+Here are some of the images of the app:<br>
+<img src="https://github.com/robinwhy/ICE/tree/master/images/instructor_registration.png" alt="instructor registration" title="instructor registration">
 <h4>Figure 1: instructor registration</h3>
-<img src="https://github.com/robinwhy/ICE/blob/master/images/learner_home.png" alt="learner_home" title="learner_home">
+<img src="https://github.com/robinwhy/ICE/tree/master/images/learner_home.png" alt="learner_home" title="learner_home">
 <h4>Figure 2: learner_home</h3>
-<img src="https://github.com/robinwhy/ICE/blob/master/images/learner_course_detail.png" alt="learner_course_detail" title="learner_course_detail">
+<img src="https://github.com/robinwhy/ICE/tree/master/images/learner_course_detail.png" alt="learner_course_detail" title="learner_course_detail">
 <h4>Figure 3: learner_course_detail</h3>
-<img src="https://github.com/robinwhy/ICE/blob/master/images/admin.png" alt="admin" title="admin">
+<img src="https://github.com/robinwhy/ICE/tree/master/images/admin.png" alt="admin" title="admin">
 <h4>Figure 4: admin</h3>
